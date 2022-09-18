@@ -6,3 +6,5 @@ const bigHeadline = TextStyle(
   fontSize: 30,
   fontWeight: FontWeight.bold,
 );
+
+const medium = TextStyle(color: colors.primary, fontSize: 20);
