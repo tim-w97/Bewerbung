@@ -13,117 +13,119 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool showButtonsVertical = MediaQuery.of(context).size.width < 420;
-    bool showIconButtonsSeparately = MediaQuery.of(context).size.width < 633;
+    bool showIconButtonsSeparately = MediaQuery.of(context).size.width < 700;
 
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          Column(
-            children: [
-              Expanded(
-                child: Container(color: colors.primary),
-              ),
-              Expanded(
-                child: Container(color: colors.secondary),
-              ),
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Expanded(
-                child: Center(
-                  child: Text(
-                    "Bewerbung als Werkstudent",
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              color: colors.primary,
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  const Text(
+                    "Meine Bewerbung als Werkstudent",
                     textAlign: TextAlign.center,
                     style: text_styles.big,
                   ),
-                ),
-              ),
-              showIconButtonsSeparately
-                  ? const CircleAvatar(
-                      backgroundImage: AssetImage("images/tim.png"),
-                      radius: 100,
-                    )
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        EmailButton(),
-                        PhoneButton(),
-                        CircleAvatar(
-                          backgroundImage: AssetImage("images/tim.png"),
-                          radius: 100,
-                        ),
-                        GithubButton(),
-                        XingButton(),
-                      ],
-                    ),
-              Expanded(
-                child: Center(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Flex(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            direction: showButtonsVertical
-                                ? Axis.vertical
-                                : Axis.horizontal,
-                            children: [
-                              CustomButton(
-                                "Anschreiben",
-                                margin: showButtonsVertical
-                                    ? const EdgeInsets.only(bottom: 20)
-                                    : const EdgeInsets.only(right: 20),
-                                onPressed: () {
-                                  Navigator.pushNamed(context, "/letter");
-                                },
-                              ),
-                              CustomButton(
-                                "Lebenslauf",
-                                onPressed: () {
-                                  Navigator.pushNamed(context, "/cv");
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        if (showIconButtonsSeparately)
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 20),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [
-                                      EmailButton(),
-                                      PhoneButton(),
-                                    ],
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    GithubButton(),
-                                    XingButton(),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
-                      ],
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Text(
+                      "entwickelt mit Flutter und Dart 🎯",
+                      textAlign: TextAlign.center,
+                      style: text_styles.medium.copyWith(color: colors.blue),
                     ),
                   ),
+                  showIconButtonsSeparately
+                      ? const CircleAvatar(
+                          backgroundImage: AssetImage("images/tim.png"),
+                          radius: 100,
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: const [
+                            EmailButton(),
+                            PhoneButton(),
+                            CircleAvatar(
+                              backgroundImage: AssetImage("images/tim.png"),
+                              radius: 100,
+                            ),
+                            GithubButton(),
+                            XingButton(),
+                          ],
+                        ),
+                ],
+              ),
+            ),
+            Container(
+              color: colors.primary,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: colors.secondary,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Flex(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        direction: showButtonsVertical
+                            ? Axis.vertical
+                            : Axis.horizontal,
+                        children: [
+                          CustomButton(
+                            "Anschreiben",
+                            margin: showButtonsVertical
+                                ? const EdgeInsets.only(bottom: 20)
+                                : const EdgeInsets.only(right: 20),
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/letter");
+                            },
+                          ),
+                          CustomButton(
+                            "Lebenslauf",
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/cv");
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    if (showIconButtonsSeparately)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 20),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  EmailButton(),
+                                  PhoneButton(),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                GithubButton(),
+                                XingButton(),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+                  ],
                 ),
               ),
-            ],
-          )
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
