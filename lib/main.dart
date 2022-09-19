@@ -26,6 +26,7 @@ class ApplicationApp extends StatelessWidget {
         dividerTheme: const DividerThemeData(
           color: colors.lightBlue,
           thickness: 3,
+          space: 40,
         ),
         colorScheme: const ColorScheme.light(
           primary: colors.primary,

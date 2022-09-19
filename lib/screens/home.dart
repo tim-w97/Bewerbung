@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
                   child: Text(
                     "Bewerbung als Werkstudent",
                     textAlign: TextAlign.center,
-                    style: text_styles.bigHeadline,
+                    style: text_styles.big,
                   ),
                 ),
               ),
