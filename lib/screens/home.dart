@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool showButtonsVertical = MediaQuery.of(context).size.width < 420;
+    bool showButtonsVertical = MediaQuery.of(context).size.width < 450;
     bool showIconButtonsSeparately = MediaQuery.of(context).size.width < 700;
 
     return Scaffold(
@@ -25,17 +25,12 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
-                  const Text(
-                    "Meine Bewerbung als Werkstudent",
-                    textAlign: TextAlign.center,
-                    style: text_styles.big,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 20),
                     child: Text(
-                      "entwickelt mit Flutter und Dart 🎯",
+                      "Meine Bewerbung als Werkstudent",
                       textAlign: TextAlign.center,
-                      style: text_styles.medium.copyWith(color: colors.blue),
+                      style: text_styles.big,
                     ),
                   ),
                   showIconButtonsSeparately
@@ -56,12 +51,20 @@ class Home extends StatelessWidget {
                             XingButton(),
                           ],
                         ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Text(
+                      "Tim Wagner",
+                      style: text_styles.medium.copyWith(color: colors.blue),
+                    ),
+                  ),
                 ],
               ),
             ),
             Container(
               color: colors.primary,
               child: Container(
+                padding: const EdgeInsets.all(20),
                 decoration: const BoxDecoration(
                   color: colors.secondary,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
@@ -69,35 +72,31 @@ class Home extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Flex(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        direction: showButtonsVertical
-                            ? Axis.vertical
-                            : Axis.horizontal,
-                        children: [
-                          CustomButton(
-                            "Anschreiben",
-                            margin: showButtonsVertical
-                                ? const EdgeInsets.only(bottom: 20)
-                                : const EdgeInsets.only(right: 20),
-                            onPressed: () {
-                              Navigator.pushNamed(context, "/letter");
-                            },
-                          ),
-                          CustomButton(
-                            "Lebenslauf",
-                            onPressed: () {
-                              Navigator.pushNamed(context, "/cv");
-                            },
-                          ),
-                        ],
-                      ),
+                    Flex(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      direction:
+                          showButtonsVertical ? Axis.vertical : Axis.horizontal,
+                      children: [
+                        CustomButton(
+                          "Anschreiben",
+                          margin: showButtonsVertical
+                              ? const EdgeInsets.only(bottom: 20)
+                              : const EdgeInsets.only(right: 20),
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/letter");
+                          },
+                        ),
+                        CustomButton(
+                          "Lebenslauf",
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/cv");
+                          },
+                        ),
+                      ],
                     ),
                     if (showIconButtonsSeparately)
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        padding: const EdgeInsets.only(top: 20),
                         child: Column(
                           children: [
                             Padding(
@@ -119,7 +118,16 @@ class Home extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      child: Text(
+                        "Diese Bewerbung habe ich mit Flutter und Dart erstellt.",
+                        textAlign: TextAlign.center,
+                        style: text_styles.medium,
+                      ),
+                    ),
+                    CustomButton("Code ansehen", onPressed: () {}),
                   ],
                 ),
               ),
