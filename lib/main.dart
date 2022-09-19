@@ -1,4 +1,7 @@
-import 'package:application/screens/home_screen.dart';
+import 'package:application/screens/curriculum.dart';
+import 'package:application/constants/colors.dart' as colors;
+import 'package:application/screens/home.dart';
+import 'package:application/screens/letter.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +14,24 @@ class ApplicationApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Meine Bewerbung',
-      home: HomeScreen(),
+      theme: ThemeData(
+        appBarTheme: Theme.of(context)
+            .appBarTheme
+            .copyWith(foregroundColor: colors.secondary),
+        scaffoldBackgroundColor: colors.secondary,
+        primaryColor: colors.primary,
+        colorScheme: const ColorScheme.light(
+          primary: colors.primary,
+          secondary: colors.secondary,
+        ),
+      ),
+      routes: {
+        "/": (context) => const Home(),
+        "/cv": (context) => const Curriculum(),
+        "/letter": (context) => const Letter(),
+      },
     );
   }
 }

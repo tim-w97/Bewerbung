@@ -3,11 +3,13 @@ import 'package:application/constants/text_styles.dart' as text_styles;
 import 'package:application/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    bool isSmallScreen = MediaQuery.of(context).size.width < 420;
+
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -29,6 +31,7 @@ class HomeScreen extends StatelessWidget {
                 child: Center(
                   child: Text(
                     "Bewerbung als Werkstudent",
+                    textAlign: TextAlign.center,
                     style: text_styles.bigHeadline,
                   ),
                 ),
@@ -38,17 +41,24 @@ class HomeScreen extends StatelessWidget {
                 radius: 100,
               ),
               Expanded(
-                child: Row(
+                child: Flex(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  direction: isSmallScreen ? Axis.vertical : Axis.horizontal,
                   children: [
                     CustomButton(
                       "Anschreiben",
-                      margin: const EdgeInsets.only(right: 20),
-                      onPressed: () {},
+                      margin: isSmallScreen
+                          ? const EdgeInsets.only(bottom: 20)
+                          : const EdgeInsets.only(right: 20),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/letter");
+                      },
                     ),
                     CustomButton(
                       "Lebenslauf",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/cv");
+                      },
                     ),
                   ],
                 ),
