@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class GithubButton extends StatelessWidget {
   const GithubButton({Key? key}) : super(key: key);
@@ -7,7 +8,9 @@ class GithubButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       color: Colors.white,
-      onPressed: () {},
+      onPressed: () {
+        launchUrlString("https://github.com/tim-w97");
+      },
       shape: const CircleBorder(),
       child: Padding(
         padding: const EdgeInsets.all(20),

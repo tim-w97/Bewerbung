@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EmailButton extends StatelessWidget {
   const EmailButton({Key? key}) : super(key: key);
@@ -7,7 +8,16 @@ class EmailButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       color: Colors.white,
-      onPressed: () {},
+      onPressed: () {
+        final mailUri = Uri(
+          scheme: "mailto",
+          path: "timwagner997@gmail.com",
+          query:
+              "subject=${Uri.encodeComponent("Ihre Bewerbung bei der recoupling UG")}",
+        );
+
+        launchUrl(mailUri);
+      },
       shape: const CircleBorder(),
       child: Padding(
         padding: const EdgeInsets.all(20),

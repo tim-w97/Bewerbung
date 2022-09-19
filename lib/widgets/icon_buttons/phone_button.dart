@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PhoneButton extends StatelessWidget {
   const PhoneButton({Key? key}) : super(key: key);
@@ -7,7 +8,14 @@ class PhoneButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       color: Colors.white,
-      onPressed: () {},
+      onPressed: () {
+        final telUri = Uri(
+          scheme: "tel",
+          path: "+4915204847344",
+        );
+
+        launchUrl(telUri);
+      },
       shape: const CircleBorder(),
       child: Padding(
         padding: const EdgeInsets.all(20),
