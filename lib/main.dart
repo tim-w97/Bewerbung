@@ -17,11 +17,16 @@ class ApplicationApp extends StatelessWidget {
     return MaterialApp(
       title: 'Meine Bewerbung',
       theme: ThemeData(
+        fontFamily: "Fraunces",
         appBarTheme: Theme.of(context)
             .appBarTheme
             .copyWith(foregroundColor: colors.secondary),
         scaffoldBackgroundColor: colors.secondary,
         primaryColor: colors.primary,
+        dividerTheme: const DividerThemeData(
+          color: colors.lightBlue,
+          thickness: 3,
+        ),
         colorScheme: const ColorScheme.light(
           primary: colors.primary,
           secondary: colors.secondary,
