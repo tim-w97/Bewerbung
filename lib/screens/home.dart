@@ -54,7 +54,8 @@ class Home extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      "Tim Wagner",
+                      "Tim Wagner | Königstr. 62 | 95028 Hof",
+                      textAlign: TextAlign.center,
                       style: text_styles.medium.copyWith(color: colors.blue),
                     ),
                   ),
@@ -119,8 +120,9 @@ class Home extends StatelessWidget {
                           ],
                         ),
                       ),
+                    const Divider(),
                     const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
+                      padding: EdgeInsets.only(bottom: 20),
                       child: Text(
                         "Diese Bewerbung habe ich mit Flutter und Dart erstellt.",
                         textAlign: TextAlign.center,
