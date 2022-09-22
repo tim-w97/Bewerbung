@@ -62,7 +62,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/tim.png
+    - images/
     - images/logos/
     - images/icons/
 
@@ -81,8 +81,8 @@ flutter:
     - family: "Poppins"
       fonts:
         - asset: fonts/Poppins-Regular.ttf
-#        - asset: fonts/fraunces_bold.ttf
-#          weight: 700 // bold
+  #        - asset: fonts/fraunces_bold.ttf
+  #          weight: 700 // bold
 
   # fonts:
   #   - family: Schyler
