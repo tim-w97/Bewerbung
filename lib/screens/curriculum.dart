@@ -1,6 +1,5 @@
 import 'package:application/widgets/curriculum_entry.dart';
 import 'package:flutter/material.dart';
-import 'package:application/constants/text_styles.dart' as text_styles;
 
 class Curriculum extends StatelessWidget {
   const Curriculum({Key? key}) : super(key: key);

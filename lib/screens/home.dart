@@ -1,5 +1,3 @@
-import 'package:application/constants/colors.dart' as colors;
-import 'package:application/constants/text_styles.dart' as text_styles;
 import 'package:application/widgets/custom_button.dart';
 import 'package:application/widgets/icon_buttons/email_button.dart';
 import 'package:application/widgets/icon_buttons/github_button.dart';
@@ -20,8 +18,8 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             Container(
+              color: Theme.of(context).colorScheme.primary,
               width: double.infinity,
-              color: colors.primary,
               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
@@ -30,7 +28,11 @@ class Home extends StatelessWidget {
                     child: Text(
                       "Meine Bewerbung als Werkstudent",
                       textAlign: TextAlign.center,
-                      style: text_styles.big,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   showIconButtonsSeparately
@@ -51,24 +53,25 @@ class Home extends StatelessWidget {
                             XingButton(),
                           ],
                         ),
-                  Padding(
+                  const Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
                       "Tim Wagner | Königstr. 62 | 95028 Hof",
                       textAlign: TextAlign.center,
-                      style: text_styles.medium.copyWith(color: colors.blue),
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
               ),
             ),
             Container(
-              color: colors.primary,
+              color: Theme.of(context).colorScheme.primary,
               child: Container(
                 padding: const EdgeInsets.all(20),
-                decoration: const BoxDecoration(
-                  color: colors.secondary,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(30)),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -120,16 +123,6 @@ class Home extends StatelessWidget {
                           ],
                         ),
                       ),
-                    const Divider(),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 20),
-                      child: Text(
-                        "Diese Bewerbung habe ich mit Flutter und Dart erstellt.",
-                        textAlign: TextAlign.center,
-                        style: text_styles.medium,
-                      ),
-                    ),
-                    CustomButton("Code ansehen", onPressed: () {}),
                   ],
                 ),
               ),

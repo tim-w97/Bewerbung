@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:application/constants/text_styles.dart' as text_styles;
 
 class CustomButton extends StatelessWidget {
   final String _text;
@@ -21,9 +20,12 @@ class CustomButton extends StatelessWidget {
         minWidth: 200,
         shape: const StadiumBorder(),
         padding: const EdgeInsets.all(20),
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.primary,
         onPressed: _onPressed,
-        child: Text(_text, style: text_styles.medium),
+        child: Text(
+          _text,
+          style: const TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

@@ -1,6 +1,4 @@
-import 'package:application/constants/colors.dart' as colors;
 import 'package:flutter/material.dart';
-import 'package:application/constants/text_styles.dart' as text_styles;
 
 class CurriculumEntry extends StatelessWidget {
   final String periodOfTime;
@@ -22,9 +20,11 @@ class CurriculumEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(periodOfTime,
-            style: text_styles.medium.copyWith(color: colors.blue),
-            textAlign: TextAlign.center),
+        Text(
+          periodOfTime,
+          textAlign: TextAlign.center,
+          style: const TextStyle(color: Colors.grey),
+        ),
         Padding(
           padding: const EdgeInsets.all(20),
           child: Image.asset(
@@ -36,21 +36,20 @@ class CurriculumEntry extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 5),
           child: Text(
             place,
-            style: text_styles.medium.copyWith(fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
         ),
         Text(
           activity,
-          style: text_styles.medium.copyWith(color: colors.lightGray),
           textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 20),
         ),
         if (details != null)
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(
               details!,
-              style: text_styles.small,
             ),
           ),
       ],
